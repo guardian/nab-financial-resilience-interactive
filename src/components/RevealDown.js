@@ -5,12 +5,12 @@ import { BP, COLOURS } from '../styles'
 
 type Props = {
   children: Array<Element<*>>
-}
+};
 
 type State = {
   isOpen: boolean,
   isMobile: boolean
-}
+};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -23,9 +23,6 @@ const HiddenContent = styled.div`
   flex-direction: column;
   transition: opacity 0.5s;
   @media (min-width: ${BP.tablet}px) {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -42,6 +39,7 @@ const Header = styled.header`
   position: relative;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
   h1 {
     flex-grow: 1;
     @media (max-width: ${BP.mobile}px) {
@@ -50,19 +48,16 @@ const Header = styled.header`
   }
   i {
     flex-grow: 0;
-    position: relative;
+    position: absolute;
     font-size: 1.7rem;
-    height: 20px;
-    width: 20px;
-    top: 1em;
-    right: 1em;
     color: ${COLOURS.highlights};
     transform: ${props => (props.isOpen ? 'rotate(90deg)' : 'none')};
     transition: transform 0.2s;
-  }
-  @media (min-width: ${BP.tablet}px) {
-    i {
-      display: none;
+    align-self: center;
+    right: 1em;
+    &::before {
+      display: block;
+      transform: translatey(3px);
     }
   }
 `
