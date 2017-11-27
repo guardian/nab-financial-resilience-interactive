@@ -1,0 +1,9 @@
+// @flow
+
+/* selection form */
+export const TOGGLE_OPTION = '@@QUIZ/TOGGLE_OPTION'
+export const SUBMIT_ANSWER = '@@QUIZ/SUBMIT_ANSWER'
+export const SUBMIT_QUIZ = '@@QUIZ/SUBMIT_QUIZ'
+export const RESET_QUIZ = '@@QUIZ/RESET_QUIZ'
+export const INCREMENT_PROGRESS = '@@QUIZ/INCREMENT_PROGRESS'
+export const INCREMENT_RESULTS_PROGRESS = '@@QUIZ/INCREMENT_RESULTS_PROGRESS'
