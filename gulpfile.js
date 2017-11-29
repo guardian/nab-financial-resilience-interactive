@@ -23,7 +23,7 @@ const mainJS = `
   document.body.appendChild(el);
 })();`
 
-const CNAME = `glabs-nab-financial-resilience-2017.surge.sh`
+const CNAME = `glabs-nab-financial-resilience.surge.sh`
 
 gulp.task('mainJS', () => {
   file('main.js', mainJS).pipe(gulp.dest('./build'))
