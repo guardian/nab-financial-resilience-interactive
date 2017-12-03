@@ -13,7 +13,7 @@ type Props = {
   questions: Array<string>,
   onIncrementResultsProgress: Function => void,
   onQuizReset: Function => void
-}
+};
 
 const Wrapper = styled.div`text-align: center;`
 const Subheading = styled.div`
@@ -66,6 +66,7 @@ const Results = (props: Props) => (
       </ButtonWrapper>
     ) : (
       [
+        <h1 style={{ fontWeight: "normal", margin: "2rem 0" }}>Thanks for completing the quiz!</h1>,
         <ResetButton onClick={() => props.onQuizReset()} to="/quiz" />,
         <ResetButtonLabel>restart quiz</ResetButtonLabel>
       ]
