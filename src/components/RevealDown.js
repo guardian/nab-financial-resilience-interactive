@@ -36,28 +36,25 @@ const GridItem = styled.div`
 `
 
 const Header = styled.header`
-  position: relative;
-  display: flex;
-  flex-direction: row;
   cursor: pointer;
   h1 {
-    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media (max-width: ${BP.mobile}px) {
       font-size: 1.6rem;
     }
-  }
-  i {
-    flex-grow: 0;
-    position: absolute;
-    font-size: 1.7rem;
-    color: ${COLOURS.highlights};
-    transform: ${props => (props.isOpen ? 'rotate(90deg)' : 'none')};
-    transition: transform 0.2s;
-    align-self: center;
-    right: 1em;
-    &::before {
-      display: block;
-      transform: translatey(3px);
+    i {
+      color: ${COLOURS.highlights};
+      font-size: 1.7rem;
+      flex: 0;
+      transform: ${props => (props.isOpen ? 'rotate(90deg)' : 'none')};
+      transition: transform 0.2s;
+      margin-left: 0.5em;
+      &::before {
+        display: block;
+        transform: translatey(3px);
+      }
     }
   }
 `
@@ -84,8 +81,10 @@ class RevealDown extends Component {
     return (
       <Wrapper>
         <Header onClick={e => this.handleClick(e)} isOpen={this.state.isOpen}>
-          <h1>If you need help</h1>
-          <i data-icon="a" />
+          <h1>
+            If you need help
+            <i data-icon="a" />
+          </h1>
         </Header>
         <HiddenContent isOpen={this.state.isOpen}>
           {content(this.props.children)}
