@@ -10,7 +10,8 @@ type Props = {
   handleCheckboxChange: Function,
   label: string,
   checked: Boolean,
-  isChecked: Boolean
+  isChecked: Boolean,
+  cancelsOthers: Boolean
 }
 
 const Wrapper = styled.div`
@@ -47,7 +48,11 @@ class CheckBox extends Component<Props> {
   props: Props
 
   toggleCheckboxChange = () => {
-    this.props.handleCheckboxChange(this.props.label, this.props.checkboxID)
+    this.props.handleCheckboxChange(
+		this.props.label,
+		this.props.cancelsOthers,
+		this.props.isChecked
+	)
   }
   render() {
     return (

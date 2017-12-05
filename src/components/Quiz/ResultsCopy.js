@@ -147,6 +147,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
   const singleAnswer = result[resultsProgress].result[0]
   const multipleAnswers = result[resultsProgress].result[iterator]
   const statistic = data.options.map(d => d.result)
+  const thisResult = result[resultsProgress].result;
 
   switch (resultsProgress) {
     case 0:
@@ -307,7 +308,8 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
       /* NOTE: switch won't work in this case
         https://stackoverflow.com/questions/24843363/is-it-possible-to-use-contains-in-a-switch-statement
       */
-      if (multipleAnswers === 'None of the above')
+
+      if (multipleAnswers === 'None of the above') {
         return [
           <p key="RESULTS_Q3_P1">
             It&apos;s never too late to take the first step. Visit
@@ -323,8 +325,14 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
             help you with budgeting and managing debts? Call 1800 007 007.
           </p>
         ]
+	}
+	
+	if (thisResult.length - 1 !== iterator) {
+		return generatePieChart(iterator, statistic);
+	}
 
-      return (
+      return [
+		generatePieChart(iterator, statistic),
         <div>
           <p>
             Well done! Taking positive steps to manage your money is a great way
@@ -334,7 +342,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
             For more tips on managing your money visit the Money Smart website.
           </p>{' '}
         </div>
-      )
+      ]
 
     case 3:
       /* QUESTION 4 */

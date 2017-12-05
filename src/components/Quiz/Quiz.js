@@ -99,11 +99,23 @@ class Quiz extends Component<Props> {
   questionNumber = this.props.progress + 1
   question = this.props.questions[this.props.progress].question
   questions = this.props.questions
-  toggleCheckbox = (label: string, cancelsOthers: Boolean) => {
-    if (this.selectedCheckboxes.includes(label)) {
-      this.selectedCheckboxes.pop(label)
-    } else if (cancelsOthers) this.selectedCheckboxes = [label]
-    else this.selectedCheckboxes = [...this.state.checked, ...label]
+  toggleCheckbox = (label: string, cancelsOthers: Boolean, wasChecked: Boolean) => {
+	if (cancelsOthers) {
+		this.selectedCheckboxes = [label];
+	} else {
+		if (this.selectedCheckboxes.includes('None of the above')) {
+			this.selectedCheckboxes = [];
+		}
+		if (wasChecked) {
+			var index = this.selectedCheckboxes.indexOf(label);
+			if (index !== -1) {
+				this.selectedCheckboxes.splice(index, 1);
+			}
+		} else {
+			this.selectedCheckboxes.push(label);
+		}
+	}
+
     this.setState({
       checked: this.selectedCheckboxes
     })
@@ -127,7 +139,7 @@ class Quiz extends Component<Props> {
     }
   }
 
-  createCheckbox = (label: string, cancelsOthers: Array<number>) => (
+  createCheckbox = (label: string, cancelsOthers: Boolean) => (
     <CheckBox
       label={label}
       handleCheckboxChange={this.toggleCheckbox}
@@ -138,9 +150,18 @@ class Quiz extends Component<Props> {
     />
   )
 
-  createCheckboxes = () => this.props.options.map(this.createCheckbox)
+  //createCheckboxes = () => this.props.options.map(this.createCheckbox)
+
+	createCheckboxes = () => {
+		let arr = [];
+		let options = this.questions[this.props.progress].options;
+		for(let i in options) {
+			arr.push(this.createCheckbox(options[i].text, options[i].cancelsOthers));
+		}
+		return arr;
+	}
+
   render() {
-    console.info(this.props.questions)
     if (this.props.quizComplete) {
       return <ResultsContainer />
     }
