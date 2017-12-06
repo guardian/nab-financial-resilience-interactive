@@ -7,12 +7,20 @@ type Props = {|
   +children: Element<*>,
   +style: string,
   inverted?: boolean
-|}
+|};
 
 const Wrapper = styled.div`
   font-size: ${(props: Props) => props.rem || 1}rem;
   color: ${(props: Props) =>
     props.inverted ? COLOURS.bodyCopy.inverted : COLOURS.bodyCopy.default};
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 `
 
 const BodyCopy = (props: Props) => {
