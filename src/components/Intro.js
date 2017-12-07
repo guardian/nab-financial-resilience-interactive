@@ -3,7 +3,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const Wrapper = styled.div`text-align: center;`
+const Wrapper = styled.div`
+  text-align: center;
+  padding: 0 20px;
+`
 
 const StartButton = styled(Link)`
   display: flex;
@@ -14,12 +17,12 @@ const StartButton = styled(Link)`
   text-decoration: none;
   color: white;
   background-color: #be0d00;
-  padding: 4px 20px;
+  padding: 0;
   border-radius: 34px;
   font-size: 16px;
   text-align: left;
   font-weight: bold;
-  margin: 20px auto;
+  margin: 60px auto;
 `
 
 const Intro = () => (

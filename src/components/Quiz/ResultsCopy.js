@@ -8,7 +8,7 @@ type Props = {
   data: Object,
   resultsProgress: number,
   iterator: number
-}
+};
 
 const createLink = (
   url: string,
@@ -179,8 +179,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
           build a savings buffer.
         </p>,
         <p key="RESULTS_Q1_P3">
-          If you’re living on a low income and need some help with a financial
-          emergency, you might qualify for a
+          If you’re living on a low income and need some help with a financial emergency, you might qualify for a
           {createLink(
             'http://goodshepherdmicrofinance.org.au/services/no-interest-loan-scheme-nils/',
             'No Interest Loan',
@@ -197,7 +196,8 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
             'http://goodshepherdmicrofinance.org.au/compare-loans/',
             'Good Shepherd Microfinance',
             'RESULTS_Q1_LINK_3'
-          )}, supported by NAB.
+          )}
+          , supported by NAB.
         </p>
       ]
     case 1:
@@ -326,7 +326,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
           </p>
         ]
 	}
-	
+
 	if (thisResult.length - 1 !== iterator) {
 		return generatePieChart(iterator, statistic);
 	}

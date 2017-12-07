@@ -22,6 +22,7 @@ const HiddenContent = styled.div`
   opacity: ${props => (props.isOpen ? '1' : '0')};
   flex-direction: column;
   transition: opacity 0.5s;
+  padding: 0 20px;
   @media (min-width: ${BP.tablet}px) {
     flex-direction: row;
     flex-wrap: wrap;
