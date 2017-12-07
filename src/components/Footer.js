@@ -9,6 +9,7 @@ const Wrapper = styled.footer`
   background-color: ${COLOURS.bodyCopy.default};
   text-align: center;
   padding: 20px;
+  margin-top: 84px;
 `
 
 const Footer = () => (
