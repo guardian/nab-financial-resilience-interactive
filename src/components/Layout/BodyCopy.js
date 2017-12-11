@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 
   a {
     color: inherit;
+    text-decoration: underline;
 
     &:hover {
       text-decoration: none;

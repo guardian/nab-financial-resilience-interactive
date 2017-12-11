@@ -51,11 +51,11 @@ injectGlobal`
 
  @font-face {
    font-family: "icon-font";
-   src: url("fonts/icon-font.eot");
-   src: url("fonts/icon-font.eot?#iefix") format("embedded-opentype"),
-     url("fonts/icon-font.woff") format("woff"),
-     url("fonts/icon-font.ttf") format("truetype"),
-     url("fonts/icon-font.svg#icon-font") format("svg");
+   src: url("${process.env.REACT_APP_PATH}/fonts/icon-font.eot");
+   src: url("${process.env.REACT_APP_PATH}/fonts/icon-font.eot?#iefix") format("embedded-opentype"),
+     url("${process.env.REACT_APP_PATH}/fonts/icon-font.woff") format("woff"),
+     url("${process.env.REACT_APP_PATH}/fonts/icon-font.ttf") format("truetype"),
+     url("${process.env.REACT_APP_PATH}/fonts/icon-font.svg#icon-font") format("svg");
    font-weight: normal;
    font-style: normal;
  }
@@ -75,10 +75,10 @@ injectGlobal`
 
 
 /* Guardian specific */
-/* .element-atom,
+.element-atom,
 .interactive-atom {
     margin: 0 !important;
-} */
+}
 
 /* set REM */
 html {
@@ -119,28 +119,48 @@ body {
 h1, h2, h3, h4 {
   font-family: "Display Sans Heading", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+
+a:active {
+  color: inherit;
+}
 `
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  background-color: #E8E8E8;
+`
+
+const Container = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+  width: 93.75%;
 `
 
 const SupportBox = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: ${BP.tablet}px) {
+    font-family: 'Display Sans';
+    height: 100%;
+    max-height: 420px;
+    position: relative;
+  }
+
+  > p {
+    margin: 0 0 1em;
+  }
+
   strong {
     font-family: 'Display Sans Heading';
   }
-  @media (min-width: ${BP.tablet}px) {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    max-height: 420px;
-    font-family: 'Display Sans';
+
+  > div {
+    margin: auto auto 0;
+
+    a {
+      margin: 0;
+    }
   }
 `
 
@@ -164,7 +184,7 @@ const App = () => (
   <Wrapper>
     <MockGuardianHeader />
     <Header />
-    {Routes}
+    <Container>{Routes}</Container>
     <RevealDown>
       {getSupportBox(
         'Financial counselling contact for feelings of distress',

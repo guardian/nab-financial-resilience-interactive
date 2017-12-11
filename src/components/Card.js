@@ -9,6 +9,15 @@ const Card = styled.div`
   background-color: #f1f3f4;
   width: 100%;
   max-width: 960px;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 `
 
 export default Card

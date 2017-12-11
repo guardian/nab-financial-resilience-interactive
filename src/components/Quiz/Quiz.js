@@ -18,10 +18,11 @@ type Props = {
   totalQuestions: number,
   onIncrementProgress: Function,
   onQuizSubmit: Function
-}
+};
+
 type State = {
   checked: Array<string> | null
-}
+};
 
 const Wrapper = styled.div`
   width: 45rem;
@@ -55,7 +56,7 @@ const Col = styled.div`
 `
 
 const QuizIcon = styled.img`
-  width: 290px;
+  max-width: 290px;
   margin: 0 auto 1rem auto;
 `
 

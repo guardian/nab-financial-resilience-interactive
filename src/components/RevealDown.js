@@ -18,21 +18,27 @@ const Wrapper = styled.div`
 `
 
 const HiddenContent = styled.div`
-  display: ${props => (props.isOpen ? 'flex' : 'none')};
-  opacity: ${props => (props.isOpen ? '1' : '0')};
-  flex-direction: column;
-  transition: opacity 0.5s;
-  padding: 0 20px;
+  display: ${props => (props.isOpen ? 'block' : 'none')};
+`
+
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: -40px 0 0 -40px;
+
   @media (min-width: ${BP.tablet}px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    margin: -80px 0 0 -80px;
   }
 `
+
 const GridItem = styled.div`
+  flex: auto;
+  padding: 40px 0 0 40px;
+
   @media (min-width: ${BP.tablet}px) {
-    flex: 1 0 33%;
-    max-width: 33%;
-    padding: 20px;
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+    padding: 80px 0 0 80px;
   }
 `
 
@@ -60,6 +66,13 @@ const Header = styled.header`
   }
 `
 
+const Container = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  width: 93.75%;
+`
+
 const content = elements =>
   elements.map((c, i) => <GridItem key={i}>{c}</GridItem>)
 
@@ -81,15 +94,19 @@ class RevealDown extends Component {
   render() {
     return (
       <Wrapper>
-        <Header onClick={e => this.handleClick(e)} isOpen={this.state.isOpen}>
-          <h1>
-            If you need help
-            <i data-icon="a" />
-          </h1>
-        </Header>
-        <HiddenContent isOpen={this.state.isOpen}>
-          {content(this.props.children)}
-        </HiddenContent>
+        <Container>
+          <Header onClick={e => this.handleClick(e)} isOpen={this.state.isOpen}>
+            <h1 style={{ margin: "60px auto" }}>
+              If you need help
+              <i data-icon="a" />
+            </h1>
+          </Header>
+          <HiddenContent isOpen={this.state.isOpen}>
+            <Grid>
+              {content(this.props.children)}
+            </Grid>
+          </HiddenContent>
+        </Container>
       </Wrapper>
     )
   }

@@ -8,7 +8,7 @@ type Props = {
   outboundUrl: string,
   width: number,
   iconSize: number
-}
+};
 
 const Button = styled.a`
   display: flex;
@@ -24,11 +24,15 @@ const Button = styled.a`
   text-align: left;
   margin: 2em auto;
   max-width: ${({ width = 180 }) => width}px;
+  &:hover {
+    text-decoration: none;
+  }
 `
 
 const Copy = styled.p`
   padding-left: 6px;
   font-weight: bold;
+  margin: 0;
 `
 
 const Icon = styled.img`
