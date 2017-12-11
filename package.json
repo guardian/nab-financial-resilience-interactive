@@ -150,5 +150,11 @@
         ]
       }
     }
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR",
+    "iOS 8"
+  ]
 }

@@ -34,6 +34,7 @@ const Grid = styled.div`
 const GridItem = styled.div`
   flex: auto;
   padding: 40px 0 0 40px;
+  display: flex;
 
   @media (min-width: ${BP.tablet}px) {
     flex-basis: 33.33333%;

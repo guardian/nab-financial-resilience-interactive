@@ -41,7 +41,7 @@ const Icon = styled.img`
 `
 
 const CalloutButton = ({ icon, text, outboundUrl, width, iconSize }: Props) => (
-  <div style={{ display: 'inline-block' }}>
+  <div>
     <Button
       href={outboundUrl}
       target="_blank"

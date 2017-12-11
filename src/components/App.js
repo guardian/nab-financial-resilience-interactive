@@ -139,11 +139,10 @@ const Container = styled.div`
 const SupportBox = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   @media (min-width: ${BP.tablet}px) {
     font-family: 'Display Sans';
-    height: 100%;
-    max-height: 420px;
     position: relative;
   }
 
@@ -156,10 +155,10 @@ const SupportBox = styled.div`
   }
 
   > div {
-    margin: auto auto 0;
+    margin-top: auto;
 
     a {
-      margin: 0;
+      margin: 0 auto;
     }
   }
 `
