@@ -39,6 +39,23 @@ const ResetButtonLabel = styled.div`
   font-size: 0.8rem;
 `
 
+const HelpLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 60px;
+  text-decoration: none;
+  color: white;
+  background-color: #be0d00;
+  padding: 0;
+  border-radius: 34px;
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+  margin: 60px auto;
+`
+
 const Results = (props: Props) => (
   <Wrapper>
     <h1>Results</h1>
@@ -68,7 +85,8 @@ const Results = (props: Props) => (
       [
         <h1 style={{ fontWeight: "normal", margin: "2rem 0" }}>Thanks for completing the quiz!</h1>,
         <ResetButton onClick={() => props.onQuizReset()} to="/quiz" />,
-        <ResetButtonLabel>restart quiz</ResetButtonLabel>
+        <ResetButtonLabel>restart quiz</ResetButtonLabel>,
+        <HelpLink to="/help">If you need help</HelpLink>
       ]
     )}
   </Wrapper>
