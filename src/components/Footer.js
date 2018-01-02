@@ -8,9 +8,14 @@ import { COLOURS } from '../styles'
 
 const Wrapper = styled.footer`
   background-color: ${COLOURS.bodyCopy.default};
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 2.5em 0;
+  position: relative;
+  right: 50%;
   text-align: center;
-  padding: 20px;
-  margin-top: 60px;
+  width: 100vw;
 `
 
 const Container = styled.div`

@@ -1,24 +1,24 @@
 // @flow
 import React, { Component, type Element } from 'react'
 import styled from 'styled-components'
-import { BP, COLOURS } from '../styles'
+import { BP } from '../styles'
 
 type Props = {
   children: Array<Element<*>>
 };
 
-type State = {
-  isOpen: boolean,
-  isMobile: boolean
-};
-
 const Wrapper = styled.div`
-  width: 100%;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
   text-align: center;
+  width: 100vw;
 `
 
-const HiddenContent = styled.div`
-  display: ${props => (props.isOpen ? 'block' : 'none')};
+const GridWrapper = styled.div`
+  margin: 2.5em 0 5em;
 `
 
 const Grid = styled.div`
@@ -44,25 +44,9 @@ const GridItem = styled.div`
 `
 
 const Header = styled.header`
-  cursor: pointer;
   h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     @media (max-width: ${BP.mobile}px) {
       font-size: 1.6rem;
-    }
-    i {
-      color: ${COLOURS.highlights};
-      font-size: 1.7rem;
-      flex: 0;
-      transform: ${props => (props.isOpen ? 'rotate(90deg)' : 'none')};
-      transition: transform 0.2s;
-      margin-left: 0.5em;
-      &::before {
-        display: block;
-        transform: translatey(3px);
-      }
     }
   }
 `
@@ -77,36 +61,24 @@ const Container = styled.div`
 const content = elements =>
   elements.map((c, i) => <GridItem key={i}>{c}</GridItem>)
 
+/* eslint-disable */
 class RevealDown extends Component {
-  state: State = {
-    isMobile: false,
-    isOpen: false
-  }
-
   props: Props
-
-  handleClick = e => {
-    e.preventDefault()
-    this.setState(
-      Object.assign({ ...this.state }, { isOpen: !this.state.isOpen })
-    )
-  }
 
   render() {
     return (
       <Wrapper>
         <Container>
-          <Header onClick={e => this.handleClick(e)} isOpen={this.state.isOpen}>
-            <h1 style={{ margin: "60px auto" }}>
-              If you need help
-              <i data-icon="a" />
+          <Header>
+            <h1 style={{ margin: "0.67em auto" }}>
+              Become more financially resilient
             </h1>
           </Header>
-          <HiddenContent isOpen={this.state.isOpen}>
+          <GridWrapper>
             <Grid>
               {content(this.props.children)}
             </Grid>
-          </HiddenContent>
+          </GridWrapper>
         </Container>
       </Wrapper>
     )
