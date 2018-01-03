@@ -1,6 +1,7 @@
 // @flow
 /* eslint-disable */
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { VictoryPie } from 'victory'
 
@@ -78,41 +79,47 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
       return [
         generatePieChart(1, statistic),
         <p key="RESULTS_Q1_P1">
-          You’re not alone. Around 1 in 5 Australians report having limited to
-          no savings.
+          You’re not alone. Around 1 in 10 Australians report not being able to
+          raise $2000 in a week for an emergency.
         </p>,
         <p key="RESULTS_Q1_P2">
-          To start saving, visit the
-          {createLink(
-            'https://www.moneysmart.gov.au/managing-your-money/get-your-money-on-track',
-            'Money Smart',
-            'RESULTS_Q1_LINK_1'
-          )}
-          website for some great tips and hints, including budgeting tools that
-          can help you identify expenses that you can cut back on in order to
-          build a savings buffer.
+          Here’s some tips:
         </p>,
-        <p key="RESULTS_Q1_P3">
-          If you’re living on a low income and need some help with a financial emergency, you might qualify for a
-          {createLink(
-            'http://goodshepherdmicrofinance.org.au/services/no-interest-loan-scheme-nils/',
-            'No Interest Loan',
-            'RESULTS_Q1_LINK_2'
-          )}
-          or a low interest
-          {createLink(
-            'http://goodshepherdmicrofinance.org.au/services/stepup-loan/',
-            'StepUP',
-            'RESULTS_Q1_LINK_3'
-          )}
-          loan from
-          {createLink(
-            'http://goodshepherdmicrofinance.org.au/compare-loans/',
-            'Good Shepherd Microfinance',
-            'RESULTS_Q1_LINK_3'
-          )}
-          , supported by NAB.
-        </p>
+        <ul key="RESULTS_Q1_P3">
+          <li>
+            To start saving, visit the
+            {createLink(
+              'https://www.moneysmart.gov.au/managing-your-money/get-your-money-on-track',
+              'Money Smart',
+              'RESULTS_Q1_LINK_1'
+            )}
+            website for some great tips and hints, including budgeting tools
+            that can help you identify expenses that you can cut back on in
+            order to build a savings buffer.
+          </li>
+          <li>
+            If you’re living on a low income and need some help with a financial
+            emergency, you might qualify for a
+            {createLink(
+              'http://goodshepherdmicrofinance.org.au/services/no-interest-loan-scheme-nils/',
+              'No Interest Loan',
+              'RESULTS_Q1_LINK_2'
+            )}
+            or a low interest
+            {createLink(
+              'http://goodshepherdmicrofinance.org.au/services/stepup-loan/',
+              'StepUP',
+              'RESULTS_Q1_LINK_3'
+            )}
+            loan from
+            {createLink(
+              'http://goodshepherdmicrofinance.org.au/compare-loans/',
+              'Good Shepherd Microfinance',
+              'RESULTS_Q1_LINK_3'
+            )}
+            , supported by NAB.
+          </li>
+        </ul>
       ]
     case 1:
       /* QUESTION 2 */
@@ -149,20 +156,19 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               but they can also be an expensive form of credit.
             </p>,
             <p key="RESULTS_Q2_P2">
-              If you’re doing it tough and need credit, there are options
-              including:
+              Here’s some tips:
             </p>,
-            <ol>
+            <ul key="RESULTS_Q2_P3">
               <li>
                 {createLink(
                   'http://www.doingittough.info/Your-Banks-Hardship-Team',
                   'Call your bank',
                   'RESULTS_Q2_LINK_1'
                 )}
-                if you’re struggling to make repayments on loans including
-                credit cards and mortgages. They can work out the best action to
-                take to help you manage your situation such as temporarily
-                suspending or lowering your payments.
+                if you’re struggling to make repayments on loans
+                including credit cards and mortgages. They can work out the best
+                action to take to help you manage your situation such as
+                temporarily suspending or lowering your payments.
               </li>
               <li>
                 Utilities and telecommunications companies also have hardship
@@ -188,18 +194,20 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
                   'https://www.humanservices.gov.au/individuals/contact-us/phone-us',
                   'here',
                   'RESULTS_Q2_LINK_3'
-                )}.
+                )}
+                .
               </li>
-            </ol>
+            </ul>
           ]
         }
 
         if (multipleAnswers === 'I used informal credit (loan from friends or family)') {
           return [
             generatePieChart(2, statistic),
-            <p>
-              21% of Australians can access credit when they need it. This is
-              essential for helping to manage life’s unplanned surprises.
+            <p key="RESULTS_Q3_P1">
+              75% of adults in Australian said they can access credit when they
+              need it. Access to credit is essential for helping to manage
+              life’s unplanned surprises.
             </p>
           ]
         }
@@ -207,9 +215,10 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         if (multipleAnswers === 'I used formal credit (loan from bank, building society, community finance, or Centrelink)') {
           return [
             generatePieChart(3, statistic),
-            <p>
-              45% of Australians can access credit when they need it. This is
-              essential for helping to manage life’s unplanned surprises.
+            <p key="RESULTS_Q4_P1">
+              75% of adults in Australian said they can access credit when they
+              need it. Access to credit is essential for helping to manage
+              life’s unplanned surprises.
             </p>
           ]
         }
@@ -217,9 +226,10 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
 
       return [
         generatePieChart(4, statistic),
-        <p>
-          25% of Australians can access credit when they need it. This is
-          essential for helping to manage life’s unplanned surprises.
+        <p key="RESULTS_Q5_P1">
+          75% of adults in Australian said they can access credit when they need
+          it. Access to credit is is essential for helping to manage life’s
+          unplanned surprises.
         </p>
       ]
     case 2:
@@ -231,17 +241,15 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
       if (multipleAnswers === 'None of these') {
         return [
           <p key="RESULTS_Q3_P1">
-            It&apos;s never too late to take the first step. Visit
+            It sounds like you could do with some help. Why don’t you call a
+            financial counsellor to see if they can help you with budgeting and
+            managing debts? Call Financial Counselling Australia on
             {createLink(
-              'https://www.moneysmart.gov.au/managing-your-money/get-your-money-on-track',
-              'Money Smart',
+              'tel:+611800007007',
+              '1800 007 007',
               'RESULTS_Q3_LINK_1'
             )}
-            for some ways to get your money on track.
-          </p>,
-          <p key="RESULTS_Q3_P2">
-            You may also want to call a financial counsellor to see if they can
-            help you with budgeting and managing debts? Call 1800 007 007.
+            .
           </p>
         ]
     	}
@@ -254,15 +262,11 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
     		generatePieChart(iterator, statistic),
         <div>
           <p>
-            Well done! Taking positive steps to manage your money is a great way
-            to build financial resilience.
+            Well Done. Taking positive steps to manage your money is a great way
+            to safeguard your finances and build financial resilience.
           </p>
-          <p>
-            For more tips on managing your money visit the Money Smart website.
-          </p>{' '}
         </div>
       ]
-
     case 3:
       /* QUESTION 4 */
       switch (singleAnswer) {
@@ -293,19 +297,8 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               and government support.
             </p>,
             <p key="RESULTS_Q4_P4">
-              If you are feeling distressed
-              {createLink(
-                'https://www.lifeline.org.au/',
-                'Lifeline',
-                'RESULTS_Q4_LINK_2'
-              )}
-              or
-              {createLink(
-                'https://www.beyondblue.org.au/',
-                'Beyond Blue',
-                'RESULTS_Q4_LINK_3'
-              )}
-              are here to help.
+              The good news is that there’s support on hand. Check out the
+              support services available to you <Link to="/support">here</Link>.
             </p>
           ]
         case 'Fairly likely':

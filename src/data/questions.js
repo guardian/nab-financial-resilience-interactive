@@ -60,7 +60,7 @@ const data = [{
     cancelsOthers : true
   }]
 }, {
-  question : 'How would you rate your ability to get support from your social networks in times of financial crisis? Social networks could include friends and family, as well as support from government and community organisations.',
+  question : 'How likely are you to get financial support from your social connections (family, friends, work colleagues, neighbours or clubs) in times of crisis?',
   options : [{
     text : 'Never/very unlikely',
     result : 22.8,
