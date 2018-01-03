@@ -29,14 +29,15 @@ const Intro = () => (
   <Wrapper>
     <h1>Are you prepared for a financial shock?</h1>
     <p>
-      Life is full of events, good and bad, that impact on our finances. To get
-      through this you need to be financially resilient. This includes having
-      savings and access to appropriate credit, as well as support from family,
-      friends, and community and government organisations.
+      Life is full of events, good and bad, that impact on our finances from
+      having a baby to an unexpected medical expense. To weather a financial
+      storm you need to be financially resilient. This means that you have the
+      knowledge and capability to draw on resources and support when you need
+      them.
     </p>
     <p>
-      Take the quiz below to find out how you compare to the other Australians
-      on some of the indicators of financial resilience.
+      Take the quiz below to find out how you compare to the other Australian
+      adult population on some of the indicators of financial resilience.
     </p>
     <StartButton text="Start Quiz" to="/quiz">
       Start Quiz

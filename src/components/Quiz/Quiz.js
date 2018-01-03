@@ -104,7 +104,8 @@ class Quiz extends Component<Props> {
 	if (cancelsOthers) {
 		this.selectedCheckboxes = [label];
 	} else {
-		if (this.selectedCheckboxes.includes('None of the above')) {
+		if (this.selectedCheckboxes.includes('None of the above') ||
+        this.selectedCheckboxes.includes('I had no access to any form of credit.')) {
 			this.selectedCheckboxes = [];
 		}
 		if (wasChecked) {

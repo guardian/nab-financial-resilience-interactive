@@ -60,9 +60,7 @@ const Help = () => (
     <RevealDown>
       {getSupportBox(
         'Financial counselling contact for feelings of distress',
-        `Australian Securities and Investments Commission, Money Smart
-        Financial Services Hotline
-        1800 007 007`,
+        `Australian Securities and Investments Commission, Money Smart Financial Services Hotline 1800 007 007`,
         'https://www.moneysmart.gov.au/managing-your-money/managing-debts/financial-counselling'
       )}
       {getSupportBox(
@@ -82,15 +80,13 @@ const Help = () => (
       )}
       {getSupportBox(
         'General contacts for feelings of distress',
-        `Lifeline Crisis Support
-        13 11 14`,
+        `Lifeline Crisis Support 13 11 14`,
         'https://www.lifeline.org.au/'
       )}
       {getSupportBox(
-        'Beyond Blue',
-        `Support Service
-        1300 224 636`,
-        'https://www.beyondblue.org.au/'
+        'Good Shepherd Microfinance & NAB',
+        `If you’re living on a low income, you might qualify for no or low interest loan.`,
+        'https://www.nab.com.au/about-us/corporate-responsibility/customers/small-loans'
       )}
     </RevealDown>
     <Footer />

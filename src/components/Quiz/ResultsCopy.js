@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
 import { VictoryPie } from 'victory'
@@ -23,102 +24,6 @@ const createLink = (
   </a>,
   spaceAfter && ' '
 ]
-
-/* const q2aComponent = [
-  <p key="RESULTS_Q2a_P1">
-    For every 100 Australians, there’s another 25 like you. Having no access to
-    credit can leave you in a tight place when things go wrong.
-  </p>,
-  <p key="RESULTS_Q2a_P2">
-    For people living on low incomes,
-    {createLink(
-      'http://goodshepherdmicrofinance.org.au/compare-loans/',
-      'Good Shepherd Microfinance',
-      'RESULTS_Q2_LINK_1'
-    )}
-    has partnered with NAB and the federal government to provide access to fair
-    and affordable credit for essential household items.
-  </p>
-] */
-/* eslint-disable max-len */
-/* const q2bComponent = [
-  <p key="RESULTS_Q2b_P1">
-    Fringe lenders can provide quick access to credit in an emergency but they
-    can also be an expensive form of credit.
-  </p>,
-  <p key="RESULTS_Q2b_P2">
-    If you’re doing it tough and need credit, there are options including:
-  </p>,
-  <ol key="RESULTS_Q2b_P3">
-    <li>
-      Call your bank if you’re struggling to make repayments on loans including
-      credit cards and mortgages. They can work out the best action to take to
-      help you manage your situation such as temporarily suspending or lowering
-      your payments.
-    </li>
-    <li>
-      Utilities and telecommunications companies also have hardship programs so
-      if you’re having trouble paying a bill such as your mobile and electricity
-      bill, contact your provider as soon as possible to discuss your options.
-    </li>
-    <li>
-      If you are on a low income, you might want to check out a no or low
-      interest loan from Good Shepherd Microfinance with the support of NAB.
-    </li>
-    <li>
-      Centrelink may be able to provide you with income support even if you do
-      not receive a Centrelink payment. A list of Centrelink contact numbers is
-      available here.
-    </li>
-  </ol>
-]
-
-const q2cComponent = [
-  <p key="RESULTS_Q2c_P1">
-    21% of Australians can access credit when they need it. This is essential
-    for helping to manage life’s unplanned surprises.
-  </p>
-]
-
-const q2dComponent = [
-  <p key="RESULTS_Q2d_P1">
-    45% of Australians can access credit when they need it. This is essential
-    for helping to manage life’s unplanned surprises.
-  </p>
-]
-const q2eComponent = [
-  <p key="RESULTS_Q2e_P1">
-    25% of Australians can access credit when they need it. This is essential
-    for helping to manage life’s unplanned surprises.
-  </p>
-] */
-
-/* const q3AnswerMatrix = [
-  {
-    value: 'Followed a budget',
-    component: q2aComponent
-  },
-  {
-    value: 'Saved regularly',
-    component: q2bComponent
-  },
-  {
-    value: 'Paid more than minimum home loan payments',
-    component: q2cComponent
-  },
-  {
-    value: 'Made voluntary contributions towards supperannuation',
-    component: q2dComponent
-  },
-  {
-    value:
-      'Received financial information counselling or advice from a professional',
-    component: q2eComponent
-  }
-] */
-
-/* const getResults = userAnswer =>
-  q3AnswerMatrix.find(a => a.value === userAnswer) */
 
 const ChartWrapper = styled.div`
   height: 300px;
@@ -156,8 +61,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         return [
           generatePieChart(0, statistic),
           <p key="RESULTS_Q1_P1">
-            Congratulations! You’re among the 80% Australians who can raise
-            $2000 in an emergency.
+            You’re in good company. 80% of Australians can raise $2000 in an emergency.
           </p>
         ]
       }
@@ -202,8 +106,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
       ]
     case 1:
       /* QUESTION 2 */
-      switch (singleAnswer) {
-        case 'I had no access to any form of credit.':
+      if (multipleAnswers === 'I had no access to any form of credit.') {
           return [
             generatePieChart(0, statistic),
             <p key="RESULTS_Q2_P1">
@@ -225,7 +128,10 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               </p>
             </p>
           ]
-        case 'I used fringe credit (payday loan).':
+      }
+
+      if (thisResult.length - 1 !== iterator) {
+        if (multipleAnswers === 'I used fringe credit (payday loan).') {
           return [
             generatePieChart(1, statistic),
             <p key="RESULTS_Q2_P1">
@@ -276,7 +182,9 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               </li>
             </ol>
           ]
-        case 'I used informal credit (friend/family).':
+        }
+
+        if (multipleAnswers === 'I used informal credit (friend/family).') {
           return [
             generatePieChart(2, statistic),
             <p>
@@ -284,7 +192,9 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               essential for helping to manage life’s unplanned surprises.
             </p>
           ]
-        case 'I used formal credit (bank/building society).':
+        }
+
+        if (multipleAnswers === 'I used formal credit (bank/building society).') {
           return [
             generatePieChart(3, statistic),
             <p>
@@ -292,7 +202,9 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               essential for helping to manage life’s unplanned surprises.
             </p>
           ]
-        case 'I used formal credit asset building (investment).':
+        }
+      }
+
           return [
             generatePieChart(4, statistic),
             <p>
@@ -300,9 +212,6 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               essential for helping to manage life’s unplanned surprises.
             </p>
           ]
-        default:
-          return <p>error</p>
-      }
     case 2:
       /* QUESTION 3 */
       /* NOTE: switch won't work in this case

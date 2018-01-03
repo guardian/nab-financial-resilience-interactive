@@ -56,6 +56,12 @@ const HelpLink = styled(Link)`
   margin: 60px auto;
 `
 
+const CardWrapper = styled.div`
+  &:not(:last-child) {
+    border-bottom: #ccc solid 1px;
+  }
+`
+
 const Results = (props: Props) => (
   <Wrapper>
     <h1>Results</h1>
@@ -68,13 +74,15 @@ const Results = (props: Props) => (
     <Card>
       {props.userResults[props.resultsProgress].result.map((r, i) => [
         <UserAnswer key={`UserAnswer_${i}`}>Your answer: {r}</UserAnswer>,
-        <ResultsCopy
-          data={props.questions[props.resultsProgress]}
-          result={props.userResults}
-          resultsProgress={props.resultsProgress}
-          key={`ResultsCopy_${i}`}
-          iterator={i}
-        />
+        <CardWrapper>
+          <ResultsCopy
+            data={props.questions[props.resultsProgress]}
+            result={props.userResults}
+            resultsProgress={props.resultsProgress}
+            key={`ResultsCopy_${i}`}
+            iterator={i}
+          />
+        </CardWrapper>
       ])}
     </Card>
     {props.resultsProgress < props.questions.length - 1 ? (
