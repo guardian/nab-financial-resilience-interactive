@@ -301,10 +301,10 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         case 'Fairly likely':
         case 'Always/very likely':
           return [
-            <p key="RESULTS_Q4_P5">It’s great to have people to lean on.</p>,
-            <p key="RESULTS_Q4_P6">
-              We are lucky to live in a country where over 75% of us have people
-              and services to call on when we need support.
+            <p key="RESULTS_Q4_P5">
+              Like you, 28% of adults in Australia said it would be fairly
+              likely they could call on social connections if they needed
+              financial support.
             </p>
           ]
         default:

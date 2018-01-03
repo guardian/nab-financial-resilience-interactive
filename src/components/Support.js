@@ -55,7 +55,7 @@ const getSupportBox = (heading, copy, url) => (
   </SupportBox>
 )
 
-const Help = () => (
+const Support = () => (
   <div>
     <RevealDown>
       {getSupportBox(
@@ -93,4 +93,4 @@ const Help = () => (
   </div>
 )
 
-export default Help
+export default Support

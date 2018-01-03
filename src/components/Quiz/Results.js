@@ -5,14 +5,12 @@ import { Link } from 'react-router-dom'
 import Card from '../Card'
 import ResultsCopy from './ResultsCopy'
 import { NextButton } from '../NextButton'
-import { COLOURS } from '../../styles'
 
 type Props = {
   resultsProgress: number,
   userResults: Array<Object>,
   questions: Array<string>,
   onIncrementResultsProgress: Function => void,
-  onQuizReset: Function => void
 };
 
 const Wrapper = styled.div`text-align: center;`
@@ -24,22 +22,7 @@ const ButtonWrapper = styled.div`margin-top: 2rem;`
 
 const UserAnswer = styled.p`font-style: italic;`
 
-const ResetButton = styled(Link)`
-  background: url(${process.env.PUBLIC_URL}/icons/icon-reset.svg) no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 66px;
-  height: 66px;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-`
-
-const ResetButtonLabel = styled.div`
-  color: ${COLOURS.highlights};
-  font-size: 0.8rem;
-`
-
-const HelpLink = styled(Link)`
+const SupportLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,10 +74,10 @@ const Results = (props: Props) => (
       </ButtonWrapper>
     ) : (
       [
-        <h1 style={{ fontWeight: "normal", margin: "2rem 0" }}>Thanks for completing the quiz!</h1>,
-        <ResetButton onClick={() => props.onQuizReset()} to="/quiz" />,
-        <ResetButtonLabel>restart quiz</ResetButtonLabel>,
-        <HelpLink to="/help">If you need help</HelpLink>
+        <h1 style={{ fontWeight: 'normal', margin: '2rem 0' }}>You’ve completed the quiz</h1>,
+        <p>Become more financially resilient</p>,
+        <p>If you need help – click through to support page</p>,
+        <SupportLink to="/support">Support</SupportLink>
       ]
     )}
   </Wrapper>
