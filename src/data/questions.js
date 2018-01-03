@@ -10,30 +10,30 @@ const data = [{
     cancelsOthers : true
   }]
 }, {
-  question : 'Which of the following statements best describes your ability to access credit over the past 12 months?',
+  question : 'Over the past 12 months, if you needed credit/loans, which of the following did you use or would you have been able to access? Choose all that apply.',
   options : [{
-    text : 'I had no access to any form of credit.',
+    text : 'I had no access to any form of credit/loans',
     result : 25.6,
     cancelsOthers : true
   }, {
-    text : 'I used fringe credit (payday loan).',
+    text : 'I used fringe credit (loan from non-bank credit provider or pawn broker)',
     result : 5.4,
     cancelsOthers : false
   }, {
-    text : 'I used informal credit (friend/family).',
+    text : 'I used informal credit (loan from friends or family)',
     result : 21.5,
     cancelsOthers : false
   }, {
-    text : 'I used formal credit (bank/building society).',
+    text : 'I used formal credit (loan from bank, building society, community finance, or Centrelink)',
     result : 46.1,
     cancelsOthers : false
   }, {
-    text : 'I used formal credit asset building (investment).',
+    text : 'I used a mortgage or an investment loan',
     result : 25.5,
     cancelsOthers : false
   }]
 }, {
-  question : 'Which of these financial actions have you taken in the last 12 months?',
+  question : 'Which of the following have you done in last 12 months? Choose all that apply.',
   options : [{
     text : 'Followed a budget',
     result : 51.6,
@@ -43,19 +43,19 @@ const data = [{
     result : 60.2,
     cancelsOthers : false
   }, {
-    text : 'Paid more than minimum home loan payments',
-    result : 58.6,
-    cancelsOthers : false
-  }, {
-    text : 'Made voluntary contributions towards supperannuation',
-    result : 28.9,
-    cancelsOthers : false
-  }, {
-    text : 'Received financial information counselling or advice from a professional',
+    text : 'Paid more than the minimum repayment required by credit card company or loan provider',
     result : 19.9,
     cancelsOthers : false
   }, {
-    text : 'None of the above',
+    text : 'Paid more than the minimum home loan repayment',
+    result : 58.6,
+    cancelsOthers : false
+  }, {
+    text : 'Made voluntary contributions towards superannuation',
+    result : 28.9,
+    cancelsOthers : false
+  }, {
+    text : 'None of these',
     result : null,
     cancelsOthers : true
   }]

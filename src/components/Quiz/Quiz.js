@@ -101,22 +101,22 @@ class Quiz extends Component<Props> {
   question = this.props.questions[this.props.progress].question
   questions = this.props.questions
   toggleCheckbox = (label: string, cancelsOthers: Boolean, wasChecked: Boolean) => {
-	if (cancelsOthers) {
-		this.selectedCheckboxes = [label];
-	} else {
-		if (this.selectedCheckboxes.includes('None of the above') ||
-        this.selectedCheckboxes.includes('I had no access to any form of credit.')) {
-			this.selectedCheckboxes = [];
-		}
-		if (wasChecked) {
-			var index = this.selectedCheckboxes.indexOf(label);
-			if (index !== -1) {
-				this.selectedCheckboxes.splice(index, 1);
-			}
-		} else {
-			this.selectedCheckboxes.push(label);
-		}
-	}
+  if (cancelsOthers) {
+    this.selectedCheckboxes = [label];
+  } else {
+    if (this.selectedCheckboxes.includes('None of these') ||
+        this.selectedCheckboxes.includes('I had no access to any form of credit/loans')) {
+      this.selectedCheckboxes = [];
+    }
+    if (wasChecked) {
+      var index = this.selectedCheckboxes.indexOf(label);
+      if (index !== -1) {
+        this.selectedCheckboxes.splice(index, 1);
+      }
+    } else {
+      this.selectedCheckboxes.push(label);
+    }
+  }
 
     this.setState({
       checked: this.selectedCheckboxes
@@ -154,14 +154,14 @@ class Quiz extends Component<Props> {
 
   //createCheckboxes = () => this.props.options.map(this.createCheckbox)
 
-	createCheckboxes = () => {
-		let arr = [];
-		let options = this.questions[this.props.progress].options;
-		for(let i in options) {
-			arr.push(this.createCheckbox(options[i].text, options[i].cancelsOthers));
-		}
-		return arr;
-	}
+  createCheckboxes = () => {
+    let arr = [];
+    let options = this.questions[this.props.progress].options;
+    for(let i in options) {
+      arr.push(this.createCheckbox(options[i].text, options[i].cancelsOthers));
+    }
+    return arr;
+  }
 
   render() {
     if (this.props.quizComplete) {

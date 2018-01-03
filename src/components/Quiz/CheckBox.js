@@ -12,7 +12,7 @@ type Props = {
   checked: Boolean,
   isChecked: Boolean,
   cancelsOthers: Boolean
-}
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,6 +25,7 @@ const Input = styled.input`display: none;`
 const Icon = styled.label`
   flex-grow: 0;
   align-self: center;
+  margin-left: 0.5em;
   &:hover {
     cursor: pointer;
   }

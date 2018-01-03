@@ -29,18 +29,28 @@ const ChartWrapper = styled.div`
   height: 300px;
   max-width: 100%;
   margin: 0 auto;
+
+  svg {
+    text {
+      &:nth-child(3) tspan {
+        font-size: 32px !important;
+      }
+
+      &:nth-child(4) tspan {
+        font-size: 16px !important;
+      }
+    }
+  }
 `
 
 const generatePieChart = (i, data) => (
   <ChartWrapper key={`RESULTS_Q_2_CHART_${i}`}>
     <VictoryPie
       colorScale={['#09B24F', 'rgba(9,178,79,0.2)']}
-      data={[{ x: 'You', y: data[i] }, { x: null, y: 100 - data[i] }]}
+      data={[{ x: 'You', y: data[i] }, { x: 'Australian adult population', y: 100 - data[i] }]}
       style={{
         labels: {
-          fill: 'black',
           fontFamily: 'Display Sans',
-          fontSize: 32,
           fontWeight: 'bold'
         }
       }}
@@ -106,32 +116,32 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
       ]
     case 1:
       /* QUESTION 2 */
-      if (multipleAnswers === 'I had no access to any form of credit.') {
-          return [
-            generatePieChart(0, statistic),
-            <p key="RESULTS_Q2_P1">
-              <p>
-                For every 100 Australians, there’s another 25 like you. Having
-                no access to credit can leave you in a tight place when things
-                go wrong.
-              </p>
-              <p>
-                For people living on low incomes,
-                {createLink(
-                  'http://goodshepherdmicrofinance.org.au/compare-loans/',
-                  'Good Shepherd Microfinance',
-                  'RESULTS_Q1_LINK_1a'
-                )}
-                has partnered with NAB and the federal government to provide
-                access to fair and affordable credit for essential household
-                items.
-              </p>
+      if (multipleAnswers === 'I had no access to any form of credit/loans') {
+        return [
+          generatePieChart(0, statistic),
+          <p key="RESULTS_Q2_P1">
+            <p>
+              For every 100 Australians, there’s another 25 like you. Having
+              no access to credit can leave you in a tight place when things
+              go wrong.
             </p>
-          ]
+            <p>
+              For people living on low incomes,
+              {createLink(
+                'http://goodshepherdmicrofinance.org.au/compare-loans/',
+                'Good Shepherd Microfinance',
+                'RESULTS_Q1_LINK_1a'
+              )}
+              has partnered with NAB and the federal government to provide
+              access to fair and affordable credit for essential household
+              items.
+            </p>
+          </p>
+        ]
       }
 
       if (thisResult.length - 1 !== iterator) {
-        if (multipleAnswers === 'I used fringe credit (payday loan).') {
+        if (multipleAnswers === 'I used fringe credit (loan from non-bank credit provider or pawn broker)') {
           return [
             generatePieChart(1, statistic),
             <p key="RESULTS_Q2_P1">
@@ -184,7 +194,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
           ]
         }
 
-        if (multipleAnswers === 'I used informal credit (friend/family).') {
+        if (multipleAnswers === 'I used informal credit (loan from friends or family)') {
           return [
             generatePieChart(2, statistic),
             <p>
@@ -194,7 +204,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
           ]
         }
 
-        if (multipleAnswers === 'I used formal credit (bank/building society).') {
+        if (multipleAnswers === 'I used formal credit (loan from bank, building society, community finance, or Centrelink)') {
           return [
             generatePieChart(3, statistic),
             <p>
@@ -205,20 +215,20 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         }
       }
 
-          return [
-            generatePieChart(4, statistic),
-            <p>
-              25% of Australians can access credit when they need it. This is
-              essential for helping to manage life’s unplanned surprises.
-            </p>
-          ]
+      return [
+        generatePieChart(4, statistic),
+        <p>
+          25% of Australians can access credit when they need it. This is
+          essential for helping to manage life’s unplanned surprises.
+        </p>
+      ]
     case 2:
       /* QUESTION 3 */
       /* NOTE: switch won't work in this case
         https://stackoverflow.com/questions/24843363/is-it-possible-to-use-contains-in-a-switch-statement
       */
 
-      if (multipleAnswers === 'None of the above') {
+      if (multipleAnswers === 'None of these') {
         return [
           <p key="RESULTS_Q3_P1">
             It&apos;s never too late to take the first step. Visit
@@ -234,14 +244,14 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
             help you with budgeting and managing debts? Call 1800 007 007.
           </p>
         ]
-	}
+    	}
 
-	if (thisResult.length - 1 !== iterator) {
-		return generatePieChart(iterator, statistic);
-	}
+    	if (thisResult.length - 1 !== iterator) {
+    		return generatePieChart(iterator, statistic);
+    	}
 
       return [
-		generatePieChart(iterator, statistic),
+    		generatePieChart(iterator, statistic),
         <div>
           <p>
             Well done! Taking positive steps to manage your money is a great way

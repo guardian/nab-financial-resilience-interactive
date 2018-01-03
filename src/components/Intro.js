@@ -12,7 +12,7 @@ const StartButton = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 240px;
   height: 60px;
   text-decoration: none;
   color: white;
@@ -40,7 +40,7 @@ const Intro = () => (
       adult population on some of the indicators of financial resilience.
     </p>
     <StartButton text="Start Quiz" to="/quiz">
-      Start Quiz
+      Test your financial resilience
     </StartButton>
   </Wrapper>
 )
