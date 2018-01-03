@@ -27,12 +27,21 @@ const createLink = (
 ]
 
 const ChartWrapper = styled.div`
-  height: 300px;
-  max-width: 100%;
-  margin: 0 auto;
+  margin-bottom: -1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1.5em;
+  max-width: 300px;
 
   svg {
+    height: auto !important;
+    vertical-align: middle;
+    width: auto !important;
+    max-width: 100%;
+
     text {
+      line-height: 150%;
+
       &:nth-child(3) tspan {
         font-size: 32px !important;
       }
@@ -48,11 +57,14 @@ const generatePieChart = (i, data) => (
   <ChartWrapper key={`RESULTS_Q_2_CHART_${i}`}>
     <VictoryPie
       colorScale={['#09B24F', 'rgba(9,178,79,0.2)']}
-      data={[{ x: 'You', y: data[i] }, { x: 'Australian adult population', y: 100 - data[i] }]}
+      data={[{ x: 'You', y: data[i] }, { x: 'Australian\nadult population', y: 100 - data[i] }]}
+      labelRadius={75}
       style={{
         labels: {
           fontFamily: 'Display Sans',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          textAnchor: 'middle',
+          verticalAnchor: 'middle'
         }
       }}
     />
@@ -78,14 +90,14 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
       }
       return [
         generatePieChart(1, statistic),
-        <p key="RESULTS_Q1_P1">
+        <p key="RESULTS_Q1_P2">
           You’re not alone. Around 1 in 10 Australians report not being able to
           raise $2000 in a week for an emergency.
         </p>,
-        <p key="RESULTS_Q1_P2">
+        <p key="RESULTS_Q1_P3">
           Here’s some tips:
         </p>,
-        <ul key="RESULTS_Q1_P3">
+        <ul key="RESULTS_Q1_P4">
           <li>
             To start saving, visit the
             {createLink(
@@ -151,14 +163,14 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         if (multipleAnswers === 'I used fringe credit (loan from non-bank credit provider or pawn broker)') {
           return [
             generatePieChart(1, statistic),
-            <p key="RESULTS_Q2_P1">
+            <p key="RESULTS_Q2_P2">
               Fringe lenders can provide quick access to credit in an emergency
               but they can also be an expensive form of credit.
             </p>,
-            <p key="RESULTS_Q2_P2">
+            <p key="RESULTS_Q2_P3">
               Here’s some tips:
             </p>,
-            <ul key="RESULTS_Q2_P3">
+            <ul key="RESULTS_Q2_P4">
               <li>
                 {createLink(
                   'http://www.doingittough.info/Your-Banks-Hardship-Team',
@@ -204,7 +216,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         if (multipleAnswers === 'I used informal credit (loan from friends or family)') {
           return [
             generatePieChart(2, statistic),
-            <p key="RESULTS_Q3_P1">
+            <p key="RESULTS_Q2_P5">
               75% of adults in Australian said they can access credit when they
               need it. Access to credit is essential for helping to manage
               life’s unplanned surprises.
@@ -215,7 +227,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
         if (multipleAnswers === 'I used formal credit (loan from bank, building society, community finance, or Centrelink)') {
           return [
             generatePieChart(3, statistic),
-            <p key="RESULTS_Q4_P1">
+            <p key="RESULTS_Q2_P6">
               75% of adults in Australian said they can access credit when they
               need it. Access to credit is essential for helping to manage
               life’s unplanned surprises.
@@ -226,7 +238,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
 
       return [
         generatePieChart(4, statistic),
-        <p key="RESULTS_Q5_P1">
+        <p key="RESULTS_Q2_P7">
           75% of adults in Australian said they can access credit when they need
           it. Access to credit is is essential for helping to manage life’s
           unplanned surprises.
@@ -260,12 +272,10 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
 
       return [
     		generatePieChart(iterator, statistic),
-        <div>
-          <p>
-            Well Done. Taking positive steps to manage your money is a great way
-            to safeguard your finances and build financial resilience.
-          </p>
-        </div>
+        <p key="RESULTS_Q3_P2">
+          Well Done. Taking positive steps to manage your money is a great way
+          to safeguard your finances and build financial resilience.
+        </p>
       ]
     case 3:
       /* QUESTION 4 */

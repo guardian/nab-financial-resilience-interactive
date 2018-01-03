@@ -18,6 +18,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   display: block;
+  &:not(:last-child) > div {
+    margin-bottom: 1rem;
+  }
 `
 
 const Input = styled.input`display: none;`
@@ -42,7 +45,6 @@ const Label = styled.label`
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 1rem;
 `
 
 class CheckBox extends Component<Props> {
