@@ -53,6 +53,9 @@ const Col = styled.div`
   @media (min-width: 720px) {
     flex-basis: 50%;
   }
+  > div {
+    padding: 1.5em;
+  }
 `
 
 const QuizIcon = styled.img`

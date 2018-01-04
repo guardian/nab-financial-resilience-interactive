@@ -20,13 +20,35 @@ const Card = styled.div`
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: left;
+
+    li {
+      padding-left: 1.5em;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 0.75em;
+      }
+
+      &::before {
+        content: "•";
+        left: 0;
+        position: absolute;
+        text-align: center;
+        transform: scale(0.5);
+        width: 1.5em;
+      }
+    }
   }
 
   p,
   ul {
     line-height: 1.375;
     margin-bottom: 1.375em;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1.375em;
+    max-width: 720px;
 
     &:first-child {
       margin-top: 0;
