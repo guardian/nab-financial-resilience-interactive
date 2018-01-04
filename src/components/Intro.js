@@ -4,25 +4,49 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
+  padding: 2em 0 3em;
   text-align: center;
-  padding: 0 20px;
+
+  h1,
+  p {
+    margin: 1.5rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1 {
+    line-height: 1.25;
+  }
+
+  p {
+    line-height: 1.5;
+  }
 `
 
 const StartButton = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 240px;
-  height: 60px;
-  text-decoration: none;
-  color: white;
   background-color: #be0d00;
-  padding: 0;
-  border-radius: 34px;
+  border-radius: 2em;
+  color: #fff;
+  display: block;
   font-size: 16px;
-  text-align: left;
-  font-weight: bold;
-  margin: 60px auto;
+  font-weight: 700;
+  line-height: 1;
+  margin: 3rem auto 0;
+  max-width: 15em;
+  padding: 1.5em;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: #fff;
+    text-decoration: none;
+  }
 `
 
 const Intro = () => (

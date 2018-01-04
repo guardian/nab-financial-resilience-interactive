@@ -22,9 +22,11 @@ const Button = styled.a`
   font-size: 16px;
   align-items: center;
   text-align: left;
-  margin: 2em auto;
+  margin: 0 auto;
   max-width: ${({ width = 180 }) => width}px;
-  &:hover {
+  &:hover,
+  &:active {
+    color: #fff;
     text-decoration: none;
   }
 `

@@ -43,11 +43,11 @@ const Card = styled.div`
 
   p,
   ul {
-    line-height: 1.375;
-    margin-bottom: 1.375em;
+    line-height: 1.5;
+    margin-bottom: 1.5em;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1.375em;
+    margin-top: 1.5em;
     max-width: 720px;
 
     &:first-child {

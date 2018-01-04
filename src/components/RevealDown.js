@@ -70,7 +70,7 @@ class RevealDown extends Component {
       <Wrapper>
         <Container>
           <Header>
-            <h1 style={{ margin: "0.67em auto" }}>
+            <h1>
               Become more financially resilient
             </h1>
           </Header>

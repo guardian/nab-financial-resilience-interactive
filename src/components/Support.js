@@ -24,6 +24,7 @@ const SupportBox = styled.div`
 
   > p {
     margin: 0 0 1em;
+    line-height: 1.25;
   }
 
   strong {
@@ -36,6 +37,16 @@ const SupportBox = styled.div`
     a {
       margin: 0 auto;
     }
+  }
+`
+
+const SupportWrapper = styled.div`
+  padding: 2em 0 3em;
+
+  h1 {
+    line-height: 1.25;
+    margin: 0 0 1.5rem;
+    text-align: center;
   }
 `
 
@@ -56,7 +67,7 @@ const getSupportBox = (heading, copy, url) => (
 )
 
 const Support = () => (
-  <div>
+  <SupportWrapper>
     <RevealDown>
       {getSupportBox(
         'Financial counselling contact for feelings of distress',
@@ -90,7 +101,7 @@ const Support = () => (
       )}
     </RevealDown>
     <Footer />
-  </div>
+  </SupportWrapper>
 )
 
 export default Support

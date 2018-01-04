@@ -25,9 +25,13 @@ type State = {
 };
 
 const Wrapper = styled.div`
-  width: 45rem;
   max-width: 100%;
+  padding: 2em 0 3em;
+  width: 45rem;
+
   h1 {
+    line-height: 1.25;
+    margin: 0 0 1.5rem;
     text-align: center;
   }
 `
@@ -39,7 +43,15 @@ const Row = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 const Col = styled.div`

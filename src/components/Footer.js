@@ -9,6 +9,7 @@ import { COLOURS } from '../styles'
 const Wrapper = styled.footer`
   background-color: ${COLOURS.bodyCopy.default};
   left: 50%;
+  margin-bottom: -3rem;
   margin-left: -50vw;
   margin-right: -50vw;
   padding: 2.5em 0;
@@ -23,6 +24,19 @@ const Container = styled.div`
   margin-right: auto;
   max-width: 960px;
   width: 93.75%;
+
+  > div {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `
 
 const Footer = () => (
