@@ -60,8 +60,8 @@ const Intro = () => (
       them.
     </p>
     <p>
-      Take the quiz below to find out how you compare to the other Australian
-      adult population on some of the indicators of financial resilience.
+      Take the quiz below to find out how you compare to other Australians on
+      some of the indicators of financial resilience.
     </p>
     <StartButton text="Start Quiz" to="/quiz">
       Test your financial resilience

@@ -3,7 +3,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { VictoryPie } from 'victory'
+import { VictoryPie, VictoryLegend } from 'victory'
+import { BP } from '../../styles'
 
 type Props = {
   result: Array<Object>,
@@ -27,11 +28,28 @@ const createLink = (
 ]
 
 const ChartWrapper = styled.div`
-  margin-bottom: -1.5em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -1.5em;
-  max-width: 300px;
+
+  @media (min-width: 37.5em) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  > div {
+    @media (min-width: 37.5em) {
+      width: auto !important;
+    }
+
+    &:nth-child(1) {
+      margin-bottom: 1.5em;
+
+      @media (min-width: 37.5em) {
+        margin: 0 1.5em 0 0;
+      }
+    }
+  }
 
   svg {
     height: auto !important;
@@ -56,16 +74,24 @@ const ChartWrapper = styled.div`
 const generatePieChart = (i, data) => (
   <ChartWrapper key={`RESULTS_Q_2_CHART_${i}`}>
     <VictoryPie
+      width={200}
+      height={200}
+      padding={0}
       colorScale={['#09B24F', 'rgba(9,178,79,0.2)']}
-      data={[{ x: 'You', y: data[i] }, { x: 'Australian\nadult population', y: 100 - data[i] }]}
-      labelRadius={75}
+      data={[{ x: null, y: data[i] }, { x: null, y: 100 - data[i] }]}
+    />
+    <VictoryLegend
+      width={200}
+      height={80}
+      padding={0}
+      title='Of the Australians surveyed —'
+      data={[
+        { name: `${data[i]}% answered yes`, symbol: { fill: '#09B24F' } },
+        { name: `${100 - data[i]}% answered no`, symbol: { fill: 'rgba(9,178,79,0.2)' } }
+      ]}
       style={{
-        labels: {
-          fontFamily: 'Display Sans',
-          fontWeight: 'bold',
-          textAnchor: 'middle',
-          verticalAnchor: 'middle'
-        }
+        title: { fontFamily: 'Display Sans' },
+        labels: { fontFamily: 'Display Sans' }
       }}
     />
   </ChartWrapper>
@@ -95,7 +121,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
           raise $2000 in a week for an emergency.
         </p>,
         <p key="RESULTS_Q1_P3">
-          Here’s some tips:
+          Here are some tips:
         </p>,
         <ul key="RESULTS_Q1_P4">
           <li>
@@ -168,7 +194,7 @@ const ResultsCopy = ({ result, data, resultsProgress, iterator }: Props) => {
               but they can also be an expensive form of credit.
             </p>,
             <p key="RESULTS_Q2_P3">
-              Here’s some tips:
+              Here are some tips:
             </p>,
             <ul key="RESULTS_Q2_P4">
               <li>

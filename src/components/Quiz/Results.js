@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @flow
 import React from 'react'
 import styled from 'styled-components'
@@ -119,8 +120,7 @@ const Results = (props: Props) => (
     ) : (
       [
         <h1 style={{ fontWeight: 'normal', marginTop: '3rem' }}>You’ve completed the quiz</h1>,
-        <p>Become more financially resilient</p>,
-        <p>If you need help – click through to support page</p>,
+        <p>For information on how to become more financially resilient view our support page.</p>,
         <SupportLink to="/support">Support</SupportLink>
       ]
     )}
