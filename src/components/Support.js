@@ -70,34 +70,34 @@ const Support = () => (
   <SupportWrapper>
     <RevealDown>
       {getSupportBox(
-        'Financial counselling contact for feelings of distress',
-        `Australian Securities and Investments Commission, Money Smart Financial Services Hotline 1800 007 007`,
-        'https://www.moneysmart.gov.au/managing-your-money/managing-debts/financial-counselling'
+        'For advice on managing your money',
+        'Money Smart Financial Services Hotline – 1800 007 007',
+        'https://www.moneysmart.gov.au/managing-your-money'
       )}
       {getSupportBox(
-        'General information on small amount loans',
-        'Australian Securities and Investments Commission, Money Smart',
-        'https://www.moneysmart.gov.au/borrowing-and-credit/other-types-of-credit/personal-loans'
+        'Contacts for general feelings of distress',
+        'Lifeline Crisis Support – 13 11 14',
+        'https://www.lifeline.org.au/'
       )}
       {getSupportBox(
-        'Hardship contacts for the major banks',
+        'Contacts for general feelings of distress',
+        'Beyond Blue – 1300 22 4636',
+        'https://www.beyondblue.org.au/'
+      )}
+      {getSupportBox(
+        'Information on no and low interest loans',
+        'Good Shepherd Microfinance and NAB',
+        'http://goodloans.org.au/'
+      )}
+      {getSupportBox(
+        'Hardship contacts for major banks',
         'Australian Bankers Association',
         'https://www.bankers.asn.au/images/uploads/ArticleDocuments/127/Bank_financial_hardship_contacts_Aprill_2017.pdf'
       )}
       {getSupportBox(
         'General information if struggling to pay utility bills',
-        'Australian Securities and Investments Commission, Money Smart',
+        'Money Smart – Australian Securities and Investments Commission',
         'https://www.moneysmart.gov.au/managing-your-money/managing-debts/trouble-with-debt/problems-paying-your-utility-bills'
-      )}
-      {getSupportBox(
-        'General contacts for feelings of distress',
-        `Lifeline Crisis Support 13 11 14`,
-        'https://www.lifeline.org.au/'
-      )}
-      {getSupportBox(
-        'Good Shepherd Microfinance & NAB',
-        `If you’re living on a low income, you might qualify for no or low interest loan.`,
-        'https://www.nab.com.au/about-us/corporate-responsibility/customers/small-loans'
       )}
     </RevealDown>
     <Footer />

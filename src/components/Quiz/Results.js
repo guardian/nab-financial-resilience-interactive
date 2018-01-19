@@ -15,7 +15,7 @@ type Props = {
 };
 
 const Wrapper = styled.div`
-  padding: 2em 0 3em;
+  padding: 2em 0;
   text-align: center;
 
   > * {
@@ -90,6 +90,13 @@ const CardWrapper = styled.div`
   }
 `
 
+const Legal = styled.small`
+  color: #666;
+  display: block;
+  font-size: 12px;
+  margin-top: 2rem;
+`
+
 const Results = (props: Props) => (
   <Wrapper>
     <h1>Results</h1>
@@ -124,6 +131,7 @@ const Results = (props: Props) => (
         <SupportLink to="/support">Support</SupportLink>
       ]
     )}
+    <Legal>Source: Roy Morgan Research 2016 – Notes: Sample size = 2006 weighted to be representative of the adult population in Australia aged 18+</Legal>
   </Wrapper>
 )
 
